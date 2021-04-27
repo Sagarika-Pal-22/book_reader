@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Book Reader</string>
+    <string name="title_activity_home_">Book Reader</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="title_activity_book_details_">Book Details</string>
+    <string name="title_activity_all__ebooks_">All E_Books</string>
+    <string name="title_activity_all_books_">All Books</string>
+    <string name="title_activity_p_d_f__reader_">PDF Reader</string>
+    <string name="title_activity_e_book__details_">EBook Details</string>
+    <string name="title_activity_cart">Cart</string>
+    <string name="title_activity_order_">My Orders</string>
+    <string name="title_activity_wish_list_">My WishList</string>
+    <string name="title_activity_notification_">Notifications</string>
+    <string name="title_activity_audio__listen_">Audio Listen</string>
+    <string name="title_activity_search_">Search</string>
+    <string name="title_activity_address_">Address_Activity</string>
+    <string name="title_activity_check_out_">Place Order</string>
+    <string name="title_activity_search__product_">Search Product</string>
+
+
+</resources>

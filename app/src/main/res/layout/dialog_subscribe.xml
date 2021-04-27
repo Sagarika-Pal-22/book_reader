@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/radio_1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/radio_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rs. 500/-"
+                android:fontFamily="@font/fonts_medium"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/text_1_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:text="For 1 Month"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:fontFamily="@font/fonts_medium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:orientation="vertical">
+    <RadioButton
+        android:id="@+id/radio_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rs. 1,000/-"
+        android:fontFamily="@font/fonts_medium"
+        android:textSize="17sp" />
+    <TextView
+        android:id="@+id/text_2_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="For 3 Months"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="vertical">
+    <RadioButton
+        android:id="@+id/radio_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rs. 1,500/-"
+        android:fontFamily="@font/fonts_medium"
+        android:textSize="17sp" />
+    <TextView
+        android:id="@+id/text_3_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="For 6 Months"
+        android:textSize="14sp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium" />
+    </LinearLayout>
+        </LinearLayout>
+    </RadioGroup>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_apply"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginVertical="@dimen/_15sdp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardBackgroundColor="@color/colorPrimary">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Apply"
+            android:textAllCaps="false"
+            android:fontFamily="@font/fonts_medium"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:textColor="@color/white"/>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

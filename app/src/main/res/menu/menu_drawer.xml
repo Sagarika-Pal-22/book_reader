@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/drawer_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/drawer_category"
+        android:title="Category" />
+    <item
+        android:id="@+id/drawer_order"
+        android:title="My Orders" />
+    <item
+        android:id="@+id/drawer_wishlist"
+        android:title="My Wishlist" />
+    <item
+        android:id="@+id/drawer_cart"
+        android:title="My Cart" />
+<!--    <item-->
+<!--        android:id="@+id/drawer_aboutus"-->
+<!--        android:title="About Us" />-->
+<!--    <item-->
+<!--        android:id="@+id/drawer_support"-->
+<!--        android:title="Help and Support"-->
+<!--        />-->
+<!--    <item-->
+<!--        android:id="@+id/drawer_contact"-->
+<!--        android:title="Contact Us"-->
+<!--        />-->
+    <item
+        android:id="@+id/drawer_logout"
+        android:title="Logout"
+        />
+</menu>

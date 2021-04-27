@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@color/greyL"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:text="Add Your Address"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/fonts_medium"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pin Code"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+    <EditText
+        android:id="@+id/edit_pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_30sdp"
+        android:padding="@dimen/_2sdp"
+        android:text=""
+        android:hint="Add Pin"
+        android:textColor="#3C3B3B"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:enabled="true"
+        android:background="@null"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address (House No,Building,Street,Area)"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+    <EditText
+        android:id="@+id/edit_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_30sdp"
+        android:padding="@dimen/_2sdp"
+        android:text=""
+        android:hint="Add address"
+        android:textColor="#3C3B3B"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:enabled="true"
+        android:background="@null"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+
+    <TextView
+        android:id="@+id/locality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Locality"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+    <EditText
+        android:id="@+id/edit_locality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_30sdp"
+        android:padding="@dimen/_2sdp"
+        android:text=""
+        android:hint="Add locality"
+        android:textColor="#3C3B3B"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:enabled="true"
+        android:background="@null"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+    <EditText
+        android:id="@+id/edit_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_30sdp"
+        android:padding="@dimen/_2sdp"
+        android:text=""
+        android:hint="Add city or district"
+        android:textColor="#3C3B3B"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:enabled="true"
+        android:background="@null"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+
+    <TextView
+        android:id="@+id/state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="State"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+    <EditText
+        android:id="@+id/edit_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_30sdp"
+        android:padding="@dimen/_2sdp"
+        android:text=""
+        android:hint="Add State"
+        android:textColor="#3C3B3B"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:enabled="true"
+        android:background="@null"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:fontFamily="@font/fonts_medium"/>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:paddingLeft="@dimen/_12sdp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_background"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:fontFamily="@font/fonts_medium"/>
+
+</LinearLayout>

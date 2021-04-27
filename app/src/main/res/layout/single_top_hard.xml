@@ -1,0 +1,220 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_139sdp"
+    android:layout_height="@dimen/_190sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_5sdp"
+    android:id="@+id/relative">
+    <RelativeLayout
+        android:id="@+id/rel_color"
+        android:layout_width="@dimen/_133sdp"
+        android:layout_height="@dimen/_185sdp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="#8C3CFA"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_133sdp"
+        android:layout_height="@dimen/_185sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        app:cardElevation="@dimen/_8sdp"
+        app:cardBackgroundColor="#fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_5sdp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_7sdp"
+                >
+                <ImageView
+                    android:id="@+id/book_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/detective"/>
+
+<!--                <TextView-->
+<!--                    android:id="@+id/out"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:alpha="0.7"-->
+<!--                    android:background="#000000"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Out of Stock"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="#fff"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:visibility="visible" />-->
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:fontFamily="@font/fonts_medium"
+                android:text="Sony Bravia 108 cm"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:lines="2"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/writer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:text="Agatha Christie"
+                android:fontFamily="@font/fonts_medium"
+                android:textSize="10sp" />
+            <RatingBar
+                android:id="@+id/rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:isIndicator="true"
+                android:max="5"
+                android:numStars="5"
+                android:progressTint="#ffd800"
+                android:rating="4"
+                android:scaleX="1.0"
+                android:scaleY="1.0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:src="@drawable/blk_rpe"/>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50.00"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/fonts_medium"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+            </LinearLayout>
+
+            <!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:gravity="center">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/price"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=" ₹ 50"-->
+<!--                    android:fontFamily="@font/fonts_medium"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:background="@drawable/strike_through"-->
+<!--                    android:textColor="#696A6A"/>-->
+<!--                <TextView-->
+<!--                    android:id="@+id/selling_price"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/fonts_medium"-->
+<!--                    android:text="₹ 18000"-->
+<!--                    android:textColor="@color/color_selected"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:id="@+id/stock_left"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=""-->
+<!--                    android:visibility="gone"-->
+<!--                    android:background="#F8CACA"-->
+<!--                    android:textColor="#000"-->
+<!--                    android:padding="@dimen/_3sdp"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:ellipsize="end"-->
+<!--                    android:textStyle="normal" />-->
+<!--            </LinearLayout>-->
+<!--            <TextView-->
+<!--                android:id="@+id/discount"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="10% Off"-->
+<!--                android:fontFamily="@font/fonts_medium"-->
+<!--                android:textColor="#000"-->
+<!--                android:textSize="12sp"-->
+<!--                android:gravity="center"-->
+<!--                android:textStyle="normal" />-->
+<!--            <RelativeLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="@dimen/_15sdp"-->
+<!--                android:layout_marginVertical="@dimen/_5sdp">-->
+
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/cart"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_28sdp"-->
+<!--                    app:cardCornerRadius="@dimen/_14sdp"-->
+<!--                    android:visibility="visible"-->
+<!--                    app:cardBackgroundColor="#656FD5"-->
+<!--                    app:cardElevation="@dimen/_5sdp">-->
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:paddingHorizontal="@dimen/_12sdp">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Add"-->
+<!--                            android:textSize="15sp"-->
+<!--                            android:textAllCaps="true"-->
+<!--                            android:textColor="@color/colorWhite"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:layout_centerVertical="true"/>-->
+<!--                        <ImageView-->
+<!--                            android:layout_width="@dimen/_15sdp"-->
+<!--                            android:layout_height="@dimen/_15sdp"-->
+<!--                            android:src="@drawable/cart"-->
+<!--                            android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            />-->
+<!--                    </RelativeLayout>-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <TextView-->
+<!--                    android:id="@+id/not"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_28sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Not Available"-->
+<!--                    android:elevation="@dimen/_5sdp"-->
+<!--                    android:visibility="visible"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:background="@drawable/box"/>-->
+<!--            </RelativeLayout>-->
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
