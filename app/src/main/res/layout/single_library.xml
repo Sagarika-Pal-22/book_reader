@@ -17,7 +17,7 @@
             android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_120sdp"
-            android:src="@drawable/crime"
+            android:src="@drawable/no_image"
             android:scaleType="fitXY" />
         <TextView
             android:id="@+id/text_title"

@@ -2,19 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/drawer_home"
-        android:title="Home" />
+        android:title="Home"
+        android:icon="@drawable/home"/>
     <item
         android:id="@+id/drawer_category"
-        android:title="Category" />
+        android:title="Category"
+        android:icon="@drawable/category"/>
     <item
         android:id="@+id/drawer_order"
-        android:title="My Orders" />
+        android:title="My Orders"
+        android:icon="@drawable/order"/>
     <item
         android:id="@+id/drawer_wishlist"
-        android:title="My Wishlist" />
+        android:title="My Wishlist"
+        android:icon="@drawable/wish"/>
     <item
         android:id="@+id/drawer_cart"
-        android:title="My Cart" />
+        android:title="My Cart"
+        android:icon="@drawable/my_cart"/>
 <!--    <item-->
 <!--        android:id="@+id/drawer_aboutus"-->
 <!--        android:title="About Us" />-->
@@ -29,5 +34,5 @@
     <item
         android:id="@+id/drawer_logout"
         android:title="Logout"
-        />
+        android:icon="@drawable/exit"/>
 </menu>

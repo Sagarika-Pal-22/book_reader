@@ -19,6 +19,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
+        app:itemTextAppearance="@style/DrawerFontStyle"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        app:itemIconSize="@dimen/_14sdp"
+        android:background="@color/colorPrimaryDark"
         app:menu="@menu/menu_drawer">
 
     </com.google.android.material.navigation.NavigationView>

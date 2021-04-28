@@ -145,7 +145,7 @@ public class Address_Activity extends AppCompatActivity {
                     JSONObject jsonObject=new JSONObject(res);
                     if (jsonObject.getString("rec").equals("1")){
 //                        user.setUser_id(jsonObject.getString("user_id"));
-                        startActivity(new Intent(Address_Activity.this,Home_Activity.class));
+                        startActivity(new Intent(Address_Activity.this,CheckOut_Activity.class));
                         finish();
                         progressDialog.dismiss();
                         Toast.makeText(Address_Activity.this, "Successfully Added", Toast.LENGTH_SHORT).show();

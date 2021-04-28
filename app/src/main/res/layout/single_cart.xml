@@ -18,7 +18,6 @@
             android:layout_height="@dimen/_70sdp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/crime"
             android:padding="@dimen/_4sdp"/>
 
         <LinearLayout

@@ -20,7 +20,7 @@
             android:id="@+id/image_slide"
             android:layout_width="@dimen/_150sdp"
             android:layout_height="@dimen/_200sdp"
-            android:src="@drawable/detective"
+            android:src="@drawable/no_image"
             android:scaleType="fitXY"
             android:alpha=".8"/>
         </androidx.cardview.widget.CardView>
@@ -60,6 +60,15 @@
                         android:text="Agatha Christie"
                         android:fontFamily="@font/fonts_medium"
                         android:textSize="10sp" />
+                    <TextView
+                        android:id="@+id/type_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Audio Book"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/fonts_medium"
+                        android:textSize="12sp" />
                     <RatingBar
                         android:id="@+id/rating"
                         style="?android:attr/ratingBarStyleSmall"

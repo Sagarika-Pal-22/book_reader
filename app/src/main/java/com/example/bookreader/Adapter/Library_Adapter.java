@@ -2,6 +2,7 @@ package com.example.bookreader.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.bookreader.Audio_Listen_Activity;
 import com.example.bookreader.EBook_Details_Activity;
 import com.example.bookreader.Model.Library_Model;
+import com.example.bookreader.PDF_Reader_Activity;
 import com.example.bookreader.R;
 
 import java.util.List;
@@ -45,9 +48,23 @@ public class Library_Adapter extends RecyclerView.Adapter<Library_Adapter.MyView
         holder.linear_library.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, EBook_Details_Activity.class));
+                if(book_models.get(position).getType().equals("1")){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", book_models.get(position).getId());
+                    bundle.putString("book_name", book_models.get(position).getText_title());
+                    bundle.putString("type", book_models.get(position).getType());
+                    context.startActivity(new Intent(context, PDF_Reader_Activity.class).putExtras(bundle));
+                }else if(book_models.get(position).getType().equals("2")){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", book_models.get(position).getId());
+                    bundle.putString("book_name", book_models.get(position).getText_title());
+                    bundle.putString("type", book_models.get(position).getType());
+                    context.startActivity(new Intent(context, Audio_Listen_Activity.class).putExtras(bundle));
+                }
+
             }
         });
+
         Glide.with(context)
                 .load(book_models.get(position).getImage())
                 .into(holder.image);

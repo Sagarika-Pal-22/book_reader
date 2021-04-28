@@ -127,6 +127,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),
@@ -185,6 +186,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),
@@ -240,6 +242,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),
@@ -296,6 +299,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),
@@ -354,6 +358,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),
@@ -408,6 +413,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),
@@ -463,6 +469,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),
@@ -521,6 +528,7 @@ public class All_Ebooks_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
                                         jsonObject.getString("author_name"),

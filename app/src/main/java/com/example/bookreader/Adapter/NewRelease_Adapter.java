@@ -46,6 +46,7 @@ public class NewRelease_Adapter extends RecyclerView.Adapter<NewRelease_Adapter.
         holder.book_name.setText(book_models.get(position).getBook_name());
         holder.writer.setText(book_models.get(position).getWriter());
         holder.rating.setText(book_models.get(position).getRating());
+        holder.type_name.setText(book_models.get(position).getType_name());
 
         Glide.with(context)
                 .load(book_models.get(position).getImage())
@@ -90,12 +91,13 @@ public class NewRelease_Adapter extends RecyclerView.Adapter<NewRelease_Adapter.
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
-        TextView book_name,writer,price,rating;
+        TextView type_name,book_name,writer,price,rating;
         LinearLayout linear_books;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             book_name = itemView.findViewById(R.id.book_name);
+            type_name = itemView.findViewById(R.id.type_name);
             writer = itemView.findViewById(R.id.writer);
             price = itemView.findViewById(R.id.price);
             rating = itemView.findViewById(R.id.rating);

@@ -100,7 +100,12 @@ public interface MyInterface {
 
     @FormUrlEncoded
     @POST("add_subscription.php")
-    Call<String> add_subscription(@Field("user_id") String user_id, @Field("product_id") String product_id, @Field("validity") String validity);
+    Call<String> add_subscription(@Field("user_id") String user_id, @Field("product_id") String product_id, @Field("validity") String validity,
+                                  @Field("amount") String amount);
+
+    @FormUrlEncoded
+    @POST("change_subscription.php")
+    Call<String> change_subscription(@Field("user_id") String user_id, @Field("product_id") String product_id);
 
     @FormUrlEncoded
     @POST("fetch_similar_books.php")

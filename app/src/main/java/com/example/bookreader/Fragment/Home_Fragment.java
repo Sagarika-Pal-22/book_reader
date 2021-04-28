@@ -485,6 +485,7 @@ public class Home_Fragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 most_liked_list.add(new SliderItem(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("genre_id"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
@@ -540,6 +541,7 @@ public class Home_Fragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 newRelease_models.add(new NewRelease_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("genre_id"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
@@ -595,6 +597,7 @@ public class Home_Fragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 sliderItems.add(new SliderItem(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("genre_id"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
@@ -651,6 +654,7 @@ public class Home_Fragment extends Fragment {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     topE_book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                             jsonObject.getString("book_type"),
+                                            jsonObject.getString("book_type_category"),
                                             jsonObject.getString("p_image"),
                                             jsonObject.getString("product_name"),
                                             jsonObject.getString("author_name"),
@@ -666,6 +670,7 @@ public class Home_Fragment extends Fragment {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     topE_book_models.add(new TopE_Book_Model(jsonObject.getString("id"),
                                             jsonObject.getString("book_type"),
+                                            jsonObject.getString("book_type_category"),
                                             jsonObject.getString("p_image"),
                                             jsonObject.getString("product_name"),
                                             jsonObject.getString("author_name"),

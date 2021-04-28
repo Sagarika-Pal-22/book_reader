@@ -50,6 +50,7 @@ public class EBook_Adapter extends RecyclerView.Adapter<EBook_Adapter.MyViewHold
                 .into(holder.image);
         holder.book_name.setText(eBook_models.get(position).getBook_name());
         holder.rating.setText(eBook_models.get(position).getRating());
+        holder.type_name.setText(eBook_models.get(position).getType_name());
 
         if(eBook_models.get(position).getPrice().equals("")){
             holder.price.setText("0");
@@ -103,7 +104,7 @@ public class EBook_Adapter extends RecyclerView.Adapter<EBook_Adapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
-        TextView book_name,writer,rating,price,genre;
+        TextView book_name,writer,rating,price,genre,type_name;
         LinearLayout linear_ebooks,lin_genre;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -111,6 +112,7 @@ public class EBook_Adapter extends RecyclerView.Adapter<EBook_Adapter.MyViewHold
             image = itemView.findViewById(R.id.image);
             book_name = itemView.findViewById(R.id.book_name);
             writer = itemView.findViewById(R.id.writer);
+            type_name = itemView.findViewById(R.id.type_name);
             rating = itemView.findViewById(R.id.rating);
             price = itemView.findViewById(R.id.price);
             genre = itemView.findViewById(R.id.genre);

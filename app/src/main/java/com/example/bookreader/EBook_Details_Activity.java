@@ -3,34 +3,20 @@ package com.example.bookreader;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
-import com.example.bookreader.Adapter.Content_Adapter;
 import com.example.bookreader.Adapter.NewRelease_Adapter;
-import com.example.bookreader.Adapter.Recommendation_Adapter;
 import com.example.bookreader.Adapter.Review_Adapter;
-import com.example.bookreader.Adapter.Similar_Adapter;
-import com.example.bookreader.Fragment.LibraryFragment;
-import com.example.bookreader.Fragment.MyCart_Fragment;
-import com.example.bookreader.Model.CategoryHome_Model;
-import com.example.bookreader.Model.Content_Model;
-import com.example.bookreader.Model.Genre_Model;
 import com.example.bookreader.Model.NewRelease_Model;
 import com.example.bookreader.Model.Review_Model;
 import com.example.bookreader.Model.User;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
-import com.squareup.picasso.Picasso;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -57,7 +43,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -72,7 +61,7 @@ public class EBook_Details_Activity extends AppCompatActivity {
     List<NewRelease_Model> model;
     List<Review_Model> review_models;
     ImageView img_book,img_subscribe,img_read;
-    TextView see_more,text_details,text_reviews,book_name,price,rating,genre,
+    TextView see_more,text_details,text_reviews,book_name,rating,genre,
             description,author,text_subscribe,text_read;
     EditText edit_review;
     LinearLayout linear_info,linear_reviews,linear_add_cart,linear_read,linear_similar,lin_genre;
@@ -90,7 +79,7 @@ public class EBook_Details_Activity extends AppCompatActivity {
     String image;
     String user_id,genre_id,pro_id,book_type;
     String pdf_url = "", audio_url = "", preview_url = "";
-    String subscribe_value="", validity = "", subscription_status ="";
+    String subscribe_value="", subscription_validity="", validity = "", subscription_status ="",value_1="",value_2="",value_3="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,7 +105,6 @@ public class EBook_Details_Activity extends AppCompatActivity {
         linear_read = findViewById(R.id.linear_read);
         linear_info = findViewById(R.id.linear_info);
         linear_reviews = findViewById(R.id.linear_reviews);
-        linear_add_cart = findViewById(R.id.linear_add_cart);
         card_listen = findViewById(R.id.card_listen);
         card_preview = findViewById(R.id.card_preview);
         card_subscribe = findViewById(R.id.card_subscribe);
@@ -124,7 +112,6 @@ public class EBook_Details_Activity extends AppCompatActivity {
         img_subscribe = findViewById(R.id.img_subscribe);
         img_read = findViewById(R.id.img_read);
         book_name = findViewById(R.id.book_name);
-//        price = findViewById(R.id.price);
         rating = findViewById(R.id.rating);
         genre = findViewById(R.id.genre);
         description = findViewById(R.id.description);
@@ -139,11 +126,6 @@ public class EBook_Details_Activity extends AppCompatActivity {
         fab_btn = findViewById(R.id.fab_btn);
         text_subscribe = findViewById(R.id.text_subscribe);
         text_read = findViewById(R.id.text_read);
-
-//        add_to_cart = findViewById(R.id.add_to_cart);
-//        already_added = findViewById(R.id.already_added);
-
-
 
         model = new ArrayList<>();
         review_models = new ArrayList<>();
@@ -194,7 +176,23 @@ public class EBook_Details_Activity extends AppCompatActivity {
                     startActivity(new Intent(EBook_Details_Activity.this,PDF_Reader_Activity.class).putExtras(bundle));
                 }
                 else {
-                    Toast.makeText(EBook_Details_Activity.this, "Do Subscribe to read this book", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EBook_Details_Activity.this);
+                    LayoutInflater inflater = LayoutInflater.from(EBook_Details_Activity.this);
+                    final View dialogView = inflater.inflate(R.layout.dialog_no_plans, null);
+                    Button close= dialogView.findViewById(R.id.close);
+                    TextView text= dialogView.findViewById(R.id.text);
+                    text.setText("Do Subscribe to read this book");
+                    builder.setView(dialogView);
+                    final AlertDialog alert = builder.create();
+                    alert.setCanceledOnTouchOutside(false);
+                    alert.show();
+                    close.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alert.dismiss();
+                        }
+                    });
+//                    Toast.makeText(EBook_Details_Activity.this, "Do Subscribe to read this book", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -268,7 +266,7 @@ public class EBook_Details_Activity extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                         if (b){
-                            subscribe_value = radio_1.getText().toString();
+                            subscribe_value = value_1;
                             validity = "1 Month";
                             radio_2.setChecked(false);
                             radio_3.setChecked(false);
@@ -280,8 +278,8 @@ public class EBook_Details_Activity extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                         if (b){
+                            subscribe_value = value_2;
                             validity = "3 Months";
-                            subscribe_value = radio_2.getText().toString();
                             radio_1.setChecked(false);
                             radio_3.setChecked(false);
                         }
@@ -292,9 +290,8 @@ public class EBook_Details_Activity extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                         if (b){
-
+                            subscribe_value = value_3;
                             validity = "6 Months";
-                            subscribe_value = radio_3.getText().toString();
                             radio_1.setChecked(false);
                             radio_2.setChecked(false);
                         }
@@ -326,15 +323,35 @@ public class EBook_Details_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(res);
                                 if(jsonObject.getString("rec").equals("1")){
 
+                                    value_1= jsonObject.getString("first_month");
                                     radio_1.setText("Rs,"+jsonObject.getString("first_month")+"/-");
+                                    value_2= jsonObject.getString("third_month");
                                     radio_2.setText("Rs,"+jsonObject.getString("third_month")+"/-");
+                                    value_3= jsonObject.getString("six_month");
                                     radio_3.setText("Rs,"+jsonObject.getString("six_month")+"/-");
                                     alertDialog = builder.create();
                                     alertDialog.show();
 //                                    progressDialog.dismiss();
                                 }
                                 else{
-                                    Toast.makeText(EBook_Details_Activity.this, "No Plans Available", Toast.LENGTH_LONG).show();
+
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(EBook_Details_Activity.this);
+                                    LayoutInflater inflater = LayoutInflater.from(EBook_Details_Activity.this);
+                                    final View dialogView = inflater.inflate(R.layout.dialog_no_plans, null);
+                                    Button close= dialogView.findViewById(R.id.close);
+                                    TextView text= dialogView.findViewById(R.id.text);
+                                    text.setText("No subscription plans are available right now for this book");
+                                    builder.setView(dialogView);
+                                    final AlertDialog alert = builder.create();
+                                    alert.setCanceledOnTouchOutside(false);
+                                    alert.show();
+                                    close.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            alert.dismiss();
+                                        }
+                                    });
+//                                    Toast.makeText(EBook_Details_Activity.this, "No Plans Available", Toast.LENGTH_LONG).show();
 //                                    progressDialog.dismiss();
                                 }
                             } catch (JSONException e) {
@@ -377,7 +394,8 @@ public class EBook_Details_Activity extends AppCompatActivity {
     }
 
     private void apply_plan() {
-        Call<String> call=myInterface.add_subscription(user_id,pro_id,validity);
+        Call<String> call=myInterface.add_subscription(user_id,pro_id,validity,subscribe_value);
+        Toast.makeText(this, ""+validity+" "+subscribe_value, Toast.LENGTH_LONG).show();
         final ProgressDialog progressDialog = ProgressDialog.show(EBook_Details_Activity.this,"loading","Please Wait");
         call.enqueue(new Callback<String>() {
             @Override
@@ -415,48 +433,6 @@ public class EBook_Details_Activity extends AppCompatActivity {
         });
     }
 
-
-    private void cart_add() {
-        String selling_price = price.getText().toString();
-        Call<String> call=myInterface.add_cart(user_id,pro_id,selling_price);
-        final ProgressDialog progressDialog = ProgressDialog.show(this,"loading","Please Wait");
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String res=response.body();
-                if (res==null){
-                    Toast.makeText(EBook_Details_Activity.this, "", Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
-                }else {
-                    try {
-                        JSONObject jsonObject = new JSONObject(res);
-                        if (jsonObject.getString("rec").equals("1")){
-                            Toast.makeText(EBook_Details_Activity.this, "Added to Cart Succesfully", Toast.LENGTH_SHORT).show();
-                            Bundle bundle = new Bundle();
-                            bundle.putString("id", pro_id);
-                            startActivity(new Intent(EBook_Details_Activity.this,EBook_Details_Activity.class).putExtras(bundle));
-                            finish();
-                            progressDialog.dismiss();
-                        }else{
-                            Toast.makeText(EBook_Details_Activity.this, "Not added to cart", Toast.LENGTH_LONG).show();
-                            progressDialog.dismiss();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(EBook_Details_Activity.this, "Something Went Wrong", Toast.LENGTH_LONG).show();
-                        progressDialog.dismiss();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(EBook_Details_Activity.this, "Slow Network", Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-            }
-        });
-    }
-
     private void fetch_similar() {
         Call<String> call = myInterface.fetch_similar(genre_id,pro_id,book_type);
         final ProgressDialog progressDialog = ProgressDialog.show(this,"loading","Please Wait");
@@ -472,7 +448,7 @@ public class EBook_Details_Activity extends AppCompatActivity {
                             progressDialog.dismiss();
                             model.clear();
                             linear_similar.setVisibility(View.GONE);
-                            Toast.makeText(EBook_Details_Activity.this, "No Similar Books found", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(EBook_Details_Activity.this, "No Similar Books found", Toast.LENGTH_SHORT).show();
                         } else {
                             linear_similar.setVisibility(View.VISIBLE);
 //                            rv_similar.setVisibility(View.VISIBLE);
@@ -481,6 +457,7 @@ public class EBook_Details_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 model.add(new NewRelease_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("genre_id"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
@@ -541,6 +518,14 @@ public class EBook_Details_Activity extends AppCompatActivity {
                             lin_genre.setVisibility(View.GONE);
                         }
 
+                        if(jsonObject.getString("book_type").equals("1")){
+                            card_listen.setVisibility(View.GONE);
+                            linear_read.setVisibility(View.VISIBLE);
+                        }else{
+                            card_listen.setVisibility(View.VISIBLE);
+                            linear_read.setVisibility(View.INVISIBLE);
+                        }
+
                         pdf_url = jsonObject.getString("pdf");
                         audio_url = jsonObject.getString("audio");
                         preview_url = jsonObject.getString("preview_pdf");
@@ -555,6 +540,26 @@ public class EBook_Details_Activity extends AppCompatActivity {
 //                            already_added.setVisibility(View.VISIBLE);
 //                        }
                             subscription_status=jsonObject.getString("subscription");
+                            subscription_validity=jsonObject.getString("end_date");
+//                            Toast.makeText(EBook_Details_Activity.this, ""+new Date(), Toast.LENGTH_LONG).show();
+                            try {
+                                SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+                                Date date = sdf.parse(subscription_validity);
+                                if(date.before(new Date())){
+                                    Toast.makeText(EBook_Details_Activity.this, ""+new Date(), Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(EBook_Details_Activity.this, ""+subscription_validity, Toast.LENGTH_SHORT).show();
+                                }
+//                                if (.before(new Date())){
+////                                    changeSubscription();
+//                                    Toast.makeText(EBook_Details_Activity.this, ""+new Date(), Toast.LENGTH_SHORT).show();                                }
+//                                else if (new SimpleDateFormat("yyyy-mm-dd").parse(subscription_validity).after(new Date())){
+////
+//                                    Toast.makeText(EBook_Details_Activity.this, ""+new Date(), Toast.LENGTH_SHORT).show();
+//                                }
+                            }catch (ParseException e){
+
+                            }
                         if(jsonObject.getString("subscription").equals("N")){
                             text_subscribe.setText("Subscribe");
                             img_subscribe.setVisibility(View.VISIBLE);
@@ -596,6 +601,43 @@ public class EBook_Details_Activity extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(EBook_Details_Activity.this, "Slow network find", Toast.LENGTH_LONG).show();
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+    private void changeSubscription() {
+        Call<String> call=myInterface.change_subscription(user_id,pro_id);
+        final ProgressDialog progressDialog = ProgressDialog.show(this,"loading","Please Wait");
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                String res=response.body();
+                if (res==null){
+                    Toast.makeText(EBook_Details_Activity.this, "", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                }else {
+                    try {
+                        JSONObject jsonObject = new JSONObject(res);
+                        if (jsonObject.getString("rec").equals("1")){
+//                            Toast.makeText(EBook_Details_Activity.this, "Removed", Toast.LENGTH_SHORT).show();
+                            fetch_details();
+                            progressDialog.dismiss();
+                        }else{
+                            Toast.makeText(EBook_Details_Activity.this, "not Removed", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(EBook_Details_Activity.this, "Something Went Wrong"+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(EBook_Details_Activity.this, "Slow Network", Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
             }
         });
@@ -786,11 +828,52 @@ public class EBook_Details_Activity extends AppCompatActivity {
 
     }
 
+//        private void cart_add() {
+//        String selling_price = price.getText().toString();
+//        Call<String> call=myInterface.add_cart(user_id,pro_id,selling_price);
+//        final ProgressDialog progressDialog = ProgressDialog.show(this,"loading","Please Wait");
+//        call.enqueue(new Callback<String>() {
+//            @Override
+//            public void onResponse(Call<String> call, Response<String> response) {
+//                String res=response.body();
+//                if (res==null){
+//                    Toast.makeText(EBook_Details_Activity.this, "", Toast.LENGTH_SHORT).show();
+//                    progressDialog.dismiss();
+//                }else {
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(res);
+//                        if (jsonObject.getString("rec").equals("1")){
+//                            Toast.makeText(EBook_Details_Activity.this, "Added to Cart Succesfully", Toast.LENGTH_SHORT).show();
+//                            Bundle bundle = new Bundle();
+//                            bundle.putString("id", pro_id);
+//                            startActivity(new Intent(EBook_Details_Activity.this,EBook_Details_Activity.class).putExtras(bundle));
+//                            finish();
+//                            progressDialog.dismiss();
+//                        }else{
+//                            Toast.makeText(EBook_Details_Activity.this, "Not added to cart", Toast.LENGTH_LONG).show();
+//                            progressDialog.dismiss();
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        Toast.makeText(EBook_Details_Activity.this, "Something Went Wrong", Toast.LENGTH_LONG).show();
+//                        progressDialog.dismiss();
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<String> call, Throwable t) {
+//                Toast.makeText(EBook_Details_Activity.this, "Slow Network", Toast.LENGTH_LONG).show();
+//                progressDialog.dismiss();
+//            }
+//        });
+//    }
 
-    private void loadFragment(MyCart_Fragment fragment) {
-        FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.frame,fragment,fragment.getTag()).commit();
-    }
+
+//    private void loadFragment(MyCart_Fragment fragment) {
+//        FragmentManager fm = getSupportFragmentManager();
+//        fm.beginTransaction().replace(R.id.frame,fragment,fragment.getTag()).commit();
+//    }
 
 
     @Override

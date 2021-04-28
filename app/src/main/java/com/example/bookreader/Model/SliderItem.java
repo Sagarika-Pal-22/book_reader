@@ -1,12 +1,13 @@
 package com.example.bookreader.Model;
 
 public class SliderItem {
-    String  id,type,genre_id,image;
+    String  id,type,type_name,genre_id,image;
     String book_name,writer,rating,description;
 
-    public SliderItem(String id, String type, String genre_id, String image, String book_name, String writer, String rating, String description) {
+    public SliderItem(String id, String type, String type_name, String genre_id, String image, String book_name, String writer, String rating, String description) {
         this.id = id;
         this.type = type;
+        this.type_name = type_name;
         this.genre_id = genre_id;
         this.image = image;
         this.book_name = book_name;
@@ -25,6 +26,10 @@ public class SliderItem {
 
     public String getType() {
         return type;
+    }
+
+    public String getType_name() {
+        return type_name;
     }
 
     public String getGenre_id() {

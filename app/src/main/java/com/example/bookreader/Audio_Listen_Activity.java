@@ -36,12 +36,12 @@ public class Audio_Listen_Activity extends AppCompatActivity implements MediaPla
      Toolbar toolbar;
      ImageView imageView, img_back, img_frwrd, img_play, img_pause;
      MediaPlayer mPlayer;
-     TextView author, genre, run_time, start_time, song_time;
+     TextView author, genre, start_time, song_time;
      SeekBar seekBar;
      static int oTime =0, sTime =0, eTime =0, fTime = 5000, bTime = 5000;
      Handler hdlr = new Handler();
     ProgressBar progressBar;
-    String pro_id, audio_url, image, author_name;
+    String type, pro_id, audio_url, image, author_name;
 
     private Handler mHandler = new Handler();
     private Utilities utils;
@@ -71,7 +71,6 @@ public class Audio_Listen_Activity extends AppCompatActivity implements MediaPla
         imageView = findViewById(R.id.imageView);
         author = findViewById(R.id.author);
         genre = findViewById(R.id.genre);
-        run_time = findViewById(R.id.run_time);
         progressBar = findViewById(R.id.progressBar);
 
         utils = new Utilities();
@@ -82,6 +81,7 @@ public class Audio_Listen_Activity extends AppCompatActivity implements MediaPla
         mPlayer.setOnCompletionListener(this);
 
         pro_id=getIntent().getExtras().getString("id");
+        type=getIntent().getExtras().getString("type");
         audio_url=getIntent().getExtras().getString("audio_url");
         image=getIntent().getExtras().getString("img_book");
         author.setText("Author: "+ getIntent().getExtras().getString("author"));

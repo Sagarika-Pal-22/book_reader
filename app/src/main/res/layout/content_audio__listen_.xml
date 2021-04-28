@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity"
+    tools:context=".Audio_Listen_Activity"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <androidx.core.widget.NestedScrollView
@@ -52,15 +52,15 @@
                             android:text="Genre:  Detective"
                             android:textSize="14sp"
                             android:fontFamily="@font/fonts_medium"/>
-                        <TextView
-                            android:id="@+id/run_time"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginHorizontal="@dimen/_20sdp"
-                            android:text="Run Time:  12 mins"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/fonts_medium"/>
+<!--                        <TextView-->
+<!--                            android:id="@+id/run_time"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            android:layout_marginHorizontal="@dimen/_20sdp"-->
+<!--                            android:text="Run Time:  12 mins"-->
+<!--                            android:textSize="14sp"-->
+<!--                            android:fontFamily="@font/fonts_medium"/>-->
                     </LinearLayout>
                     <com.like.LikeButton
                         android:id="@+id/fab_btn"
@@ -194,103 +194,103 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <RelativeLayout
-            android:id="@+id/relative"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginHorizontal="@dimen/_15sdp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:weightSum="3">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1.2"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/request"
-                        app:tint="@color/white"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Request Hard Copy"
-                        android:paddingHorizontal="@dimen/_5sdp"
-                        android:layout_marginVertical="@dimen/_3sdp"
-                        android:fontFamily="@font/fonts_medium"
-                        android:textColor="@color/white"
-                        android:textSize="12sp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linear_read"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.8"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/library"
-                        app:tint="@color/white"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Read"
-                        android:layout_marginVertical="@dimen/_3sdp"
-                        android:fontFamily="@font/fonts_medium"
-                        android:textColor="@color/white"
-                        android:textSize="12sp" />
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/linear_add_cart"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/cart"
-                        app:tint="@color/white"/>
-                    <TextView
-                        android:id="@+id/add_to_cart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_3sdp"
-                        android:gravity="center"
-                        android:text="Add to Cart"
-                        android:fontFamily="@font/fonts_medium"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:visibility="gone"/>
-                    <TextView
-                        android:id="@+id/already_added"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_3sdp"
-                        android:gravity="center"
-                        android:text="Go to Cart"
-                        android:fontFamily="@font/fonts_medium"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:visibility="gone"/>
-                </LinearLayout>
-            </LinearLayout>
-        </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/relative"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_50sdp"-->
+<!--            android:layout_marginTop="@dimen/_20sdp"-->
+<!--            android:layout_marginHorizontal="@dimen/_15sdp">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:gravity="center"-->
+<!--                android:weightSum="3">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="1.2"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/request"-->
+<!--                        app:tint="@color/white"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="Request Hard Copy"-->
+<!--                        android:paddingHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginVertical="@dimen/_3sdp"-->
+<!--                        android:fontFamily="@font/fonts_medium"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="12sp" />-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/linear_read"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="0.8"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/library"-->
+<!--                        app:tint="@color/white"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="Read"-->
+<!--                        android:layout_marginVertical="@dimen/_3sdp"-->
+<!--                        android:fontFamily="@font/fonts_medium"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="12sp" />-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/linear_add_cart"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@drawable/cart"-->
+<!--                        app:tint="@color/white"/>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/add_to_cart"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginVertical="@dimen/_3sdp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="Add to Cart"-->
+<!--                        android:fontFamily="@font/fonts_medium"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:visibility="gone"/>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/already_added"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginVertical="@dimen/_3sdp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="Go to Cart"-->
+<!--                        android:fontFamily="@font/fonts_medium"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:visibility="gone"/>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </RelativeLayout>-->
     </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

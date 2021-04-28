@@ -31,7 +31,7 @@
                         android:id="@+id/img_1"
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_70sdp"
-                        android:src="@drawable/book_1"
+                        android:src="@drawable/no_image"
                         android:scaleType="fitXY"/>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
@@ -46,7 +46,7 @@
                         android:id="@+id/img_2"
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_70sdp"
-                        android:src="@drawable/book_2"
+                        android:src="@drawable/no_image"
                         android:scaleType="fitXY"/>
                 </androidx.cardview.widget.CardView>
 

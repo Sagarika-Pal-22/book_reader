@@ -4,20 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.bookreader.Adapter.Notification_Adapter;
 import com.example.bookreader.Fragment.Genre_Fragment;
 import com.example.bookreader.Fragment.Home_Fragment;
 import com.example.bookreader.Fragment.LibraryFragment;
-import com.example.bookreader.Fragment.MyCart_Fragment;
-import com.example.bookreader.Fragment.MyWishlist_Fragment;
-import com.example.bookreader.Fragment.Order_Fragment;
 import com.example.bookreader.Fragment.Profile_Fragment;
-import com.example.bookreader.Model.Notification_Model;
 import com.example.bookreader.Model.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -37,7 +31,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,7 +44,8 @@ public class Home_Activity extends AppCompatActivity {
     NavigationView navview;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
-    BottomNavigationView bottomnav;
+    private ChipNavigationBar bottomnav;
+    private Fragment fragment;
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
     public ImageView cart_img,notification;
@@ -110,36 +104,16 @@ public class Home_Activity extends AppCompatActivity {
                         break;
                     case R.id.drawer_order:
                         startActivity(new Intent(Home_Activity.this, Order_Activity.class));
-//                        Order_Fragment order_fragment = new Order_Fragment();
-//                        FragmentTransaction fragmentTransaction_o = getSupportFragmentManager().beginTransaction();
-//                        fragmentTransaction_o.replace(R.id.framelayout, order_fragment);
-//                        fragmentTransaction_o.commit();
-//                        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//                            drawer.closeDrawer(GravityCompat.START);
-//                        }
                         break;
                     case R.id.drawer_wishlist:
                         startActivity(new Intent(Home_Activity.this, WishList_Activity.class));
-//                        MyWishlist_Fragment wishlist_fragment = new MyWishlist_Fragment();
-//                        FragmentTransaction fragmentTransaction_w = getSupportFragmentManager().beginTransaction();
-//                        fragmentTransaction_w.replace(R.id.framelayout, wishlist_fragment);
-//                        fragmentTransaction_w.commit();
-//                        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//                            drawer.closeDrawer(GravityCompat.START);
-//                        }
                         break;
                     case R.id.drawer_cart:
                         startActivity(new Intent(Home_Activity.this, CartActivity.class));
-//                        MyCart_Fragment cart_fragment = new MyCart_Fragment();
-//                        FragmentTransaction fragmentTransaction_c = getSupportFragmentManager().beginTransaction();
-//                        fragmentTransaction_c.replace(R.id.framelayout, cart_fragment);
-//                        fragmentTransaction_c.commit();
-//                        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//                            drawer.closeDrawer(GravityCompat.START);
-//                        }
                         break;
                     case R.id.drawer_logout:
-//                        startActivity(new Intent(MainActivity.this, Feedback_Activity.class));
+                        user.remove();
+                        startActivity(new Intent(Home_Activity.this, Login_Activity.class));
                         break;
 
                     default:
@@ -149,35 +123,44 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
-        bottomnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bottomnav.setItemSelected(R.id.menu_home,true);
+        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new Home_Fragment()).commit();
+
+        bottomnav.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.menu_home) {
+            public void onItemSelected(int i) {
+                switch (i) {
+                    case R.id.menu_home:
                     Home_Fragment home_fragment = new Home_Fragment();
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.framelayout, home_fragment);
                     fragmentTransaction.commit();
-                }else if (id == R.id.menu_category) {
+                        break;
+                    case R.id.menu_category:
                     Genre_Fragment genre_fragment = new Genre_Fragment();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.framelayout, genre_fragment);
-                    fragmentTransaction.commit();
-                }else if (id == R.id.menu_library) {
+                    FragmentTransaction fragmentTransaction_1 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction_1.replace(R.id.framelayout, genre_fragment);
+                    fragmentTransaction_1.commit();
+                        break;
+                    case R.id.menu_library:
                     LibraryFragment libraryFragment = new LibraryFragment();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.framelayout, libraryFragment);
-                    fragmentTransaction.commit();
-                }else if (id == R.id.menu_profile) {
-                    Profile_Fragment profileFragment = new Profile_Fragment();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.framelayout, profileFragment);
-                    fragmentTransaction.commit();
+                    FragmentTransaction fragmentTransaction_2 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction_2.replace(R.id.framelayout, libraryFragment);
+                    fragmentTransaction_2.commit();
+                        break;
+                    case R.id.menu_profile:
+                        Profile_Fragment profileFragment = new Profile_Fragment();
+                        FragmentTransaction fragmentTransaction_3 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction_3.replace(R.id.framelayout, profileFragment);
+                        fragmentTransaction_3.commit();
+                        break;
                 }
-                return true;
+                if(fragment!=null){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,fragment).commit();
+                }
             }
         });
-        bottomnav.setSelectedItemId(R.id.menu_home);
+
 
     }
 

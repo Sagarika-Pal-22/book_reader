@@ -2,11 +2,12 @@ package com.example.bookreader.Model;
 
 public class NewRelease_Model {
 
-    String id,type,genre,image,book_name,writer,price,rating;
+    String id,type,type_name,genre,image,book_name,writer,price,rating;
 
-    public NewRelease_Model(String id, String type, String genre, String image, String book_name, String writer, String price, String rating) {
+    public NewRelease_Model(String id, String type, String type_name, String genre, String image, String book_name, String writer, String price, String rating) {
         this.id = id;
         this.type = type;
+        this.type_name = type_name;
         this.genre = genre;
         this.image = image;
         this.book_name = book_name;
@@ -21,6 +22,10 @@ public class NewRelease_Model {
 
     public String getType() {
         return type;
+    }
+
+    public String getType_name() {
+        return type_name;
     }
 
     public String getGenre() {

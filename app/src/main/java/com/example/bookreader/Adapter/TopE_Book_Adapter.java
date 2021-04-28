@@ -45,6 +45,7 @@ public class TopE_Book_Adapter extends RecyclerView.Adapter<TopE_Book_Adapter.My
         holder.book_name.setText(book_models.get(position).getBook_name());
         holder.rating.setText(book_models.get(position).getRating());
         holder.writer.setText(book_models.get(position).getWriter());
+        holder.type_name.setText(book_models.get(position).getType_name());
 
         if(book_models.get(position).getPrice().equals("")){
             holder.price.setText("0");
@@ -87,7 +88,7 @@ public class TopE_Book_Adapter extends RecyclerView.Adapter<TopE_Book_Adapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
-        TextView book_name,writer,price,rating;
+        TextView book_name,writer,price,rating,type_name;
         Button btn_details;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -96,6 +97,7 @@ public class TopE_Book_Adapter extends RecyclerView.Adapter<TopE_Book_Adapter.My
             rating = itemView.findViewById(R.id.rating);
             writer = itemView.findViewById(R.id.writer);
             price = itemView.findViewById(R.id.price);
+            type_name = itemView.findViewById(R.id.type_name);
             btn_details = itemView.findViewById(R.id.btn_details);
 
         }

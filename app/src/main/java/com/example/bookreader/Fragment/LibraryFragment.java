@@ -88,7 +88,7 @@ public class LibraryFragment extends Fragment {
                             library_modelList.clear();
                             rv_library.setVisibility(View.GONE);
                             lin_no_product.setVisibility(View.VISIBLE);
-                            Toast.makeText(getActivity(), "No Data found", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getActivity(), "No Data found", Toast.LENGTH_SHORT).show();
                         } else {
                             rv_library.setVisibility(View.VISIBLE);
                             lin_no_product.setVisibility(View.GONE);
@@ -97,6 +97,7 @@ public class LibraryFragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 library_modelList.add(new Library_Model(jsonObject.getString("id"),
                                         jsonObject.getString("image"),
+                                        jsonObject.getString("book_type"),
                                         jsonObject.getString("product_name")));
                             }
                             Library_Adapter library_adapter = new Library_Adapter(getActivity(),library_modelList);

@@ -13,16 +13,16 @@
         android:id="@+id/framelayout"
         android:layout_above="@id/bottomnav"/>
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomnav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_50sdp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        app:itemIconTint="@color/colorPrimary"
-        app:itemTextColor="@color/colorPrimary"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/menubottom_nav" />
+        android:background="@drawable/bottom_navigation"
+        android:elevation="@dimen/_16sdp"
+        android:padding="@dimen/_5sdp"
+        app:cnb_menuResource="@menu/menubottom_nav" />
+
+
 
 </RelativeLayout>

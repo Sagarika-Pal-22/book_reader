@@ -46,6 +46,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
         holder.book_name.setText(book_models.get(position).getBook_name());
+        holder.type_name.setText(book_models.get(position).getType_name());
         holder.writer.setText(book_models.get(position).getWriter());
         holder.description.setText(book_models.get(position).getDescription());
         holder.rating.setRating(Float.parseFloat(book_models.get(position).getRating()));
@@ -89,13 +90,14 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
-        TextView book_name,writer,description;
+        TextView book_name,type_name,writer,description;
         RatingBar rating;
         RelativeLayout relative;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image_slide);
             book_name = itemView.findViewById(R.id.book_name);
+            type_name = itemView.findViewById(R.id.type_name);
             writer = itemView.findViewById(R.id.writer);
             description = itemView.findViewById(R.id.description);
             rating = itemView.findViewById(R.id.rating);

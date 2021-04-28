@@ -35,10 +35,9 @@ public class Profile_Fragment extends Fragment {
 
     MyInterface myInterface;
     String user_id;
-    ImageView edit_account,edit_adrs;
+    ImageView edit_account;
     Button btn_logout,btn_update;
     EditText edit_name,edit_number,edit_email,edit_pin,edit_address,edit_locality,edit_city,edit_state;
-    TextView text_add;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,9 +57,7 @@ public class Profile_Fragment extends Fragment {
         edit_locality = view.findViewById(R.id.edit_locality);
         edit_city = view.findViewById(R.id.edit_city);
         edit_state = view.findViewById(R.id.edit_state);
-//        edit_adrs = view.findViewById(R.id.edit_adrs);
         edit_account = view.findViewById(R.id.edit_account);
-//        text_add = view.findViewById(R.id.text_add);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,12 +113,6 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-//        text_add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getActivity(), Address_Activity.class));
-//            }
-//        });
         return view;
     }
 
@@ -231,16 +222,6 @@ public class Profile_Fragment extends Fragment {
 }
 
 
-//                        if(jsonObject.getString("address").equals("null")){
-//                            edit_address.setEnabled(true);
-//                            text_add.setVisibility(View.VISIBLE);
-//                            edit_adrs.setVisibility(View.GONE);
-//                        }else{
-//                            edit_address.setText(jsonObject.getString("pincode")+jsonObject.getString("address")+
-//                                    jsonObject.getString("locality")+jsonObject.getString("city")+
-//                                    jsonObject.getString("state"));
-//                            edit_address.setEnabled(false);
-//                            text_add.setVisibility(View.GONE);
-//                            edit_adrs.setVisibility(View.VISIBLE);
-//                        }
+
+
 

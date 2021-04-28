@@ -27,7 +27,7 @@ import java.util.Locale;
 public class PDF_Reader_Activity extends AppCompatActivity {
 
     WebView webview;
-    String type,book_url,preview_url;
+    String id,type,book_url,preview_url;
     ProgressBar progressBar;
 
     @Override
@@ -45,6 +45,8 @@ public class PDF_Reader_Activity extends AppCompatActivity {
 
         progressBar.setVisibility(View.VISIBLE);
 
+        id=getIntent().getExtras().getString("id");
+        type=getIntent().getExtras().getString("type");
         book_url=getIntent().getExtras().getString("pdf_url");
         preview_url=getIntent().getExtras().getString("preview_url");
 

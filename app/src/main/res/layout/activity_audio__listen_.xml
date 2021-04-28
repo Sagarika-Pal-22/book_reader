@@ -39,8 +39,7 @@
                 android:layout_height="@dimen/_180sdp"
                 android:layout_marginTop="@dimen/_60sdp"
                 android:layout_marginHorizontal="@dimen/_50sdp"
-                android:scaleType="fitXY"
-                android:src="@drawable/detective"/>
+                android:scaleType="fitXY" />
 
 
 

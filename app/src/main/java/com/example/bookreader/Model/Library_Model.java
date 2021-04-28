@@ -2,11 +2,12 @@ package com.example.bookreader.Model;
 
 public class Library_Model {
 
-    String id, image, text_title;
+    String id, image, type, text_title;
 
-    public Library_Model(String id, String image, String text_title) {
+    public Library_Model(String id, String image, String type, String text_title) {
         this.id = id;
         this.image = image;
+        this.type = type;
         this.text_title = text_title;
     }
 
@@ -16,6 +17,10 @@ public class Library_Model {
 
     public String getImage() {
         return image;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getText_title() {

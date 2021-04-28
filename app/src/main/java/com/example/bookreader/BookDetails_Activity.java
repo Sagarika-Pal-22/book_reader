@@ -275,7 +275,7 @@ public class BookDetails_Activity extends AppCompatActivity {
                             progressDialog.dismiss();
                             model.clear();
                             linear_similar.setVisibility(View.GONE);
-                            Toast.makeText(BookDetails_Activity.this, "No Similar Books found", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(BookDetails_Activity.this, "No Similar Books found", Toast.LENGTH_SHORT).show();
                         } else {
                             linear_similar.setVisibility(View.VISIBLE);
 //                            rv_similar.setVisibility(View.VISIBLE);
@@ -284,6 +284,7 @@ public class BookDetails_Activity extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 model.add(new NewRelease_Model(jsonObject.getString("id"),
                                         jsonObject.getString("book_type"),
+                                        jsonObject.getString("book_type_category"),
                                         jsonObject.getString("genre_id"),
                                         jsonObject.getString("p_image"),
                                         jsonObject.getString("product_name"),
